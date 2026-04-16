@@ -1,0 +1,73 @@
+{
+  "name": "pokedoro",
+  "version": "1.2.0",
+  "description": "Pokemon Pomodoro — Electron desktop widget",
+  "main": "main.js",
+  "author": "freethewalruses",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/freethewalruses/PokeDoroDesktop.git"
+  },
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "publish": "electron-builder --publish always",
+    "kill": "taskkill /F /IM PokeDoro.exe /T || exit 0",
+    "predist": "taskkill /F /IM PokeDoro.exe /T || exit 0",
+    "prepack": "taskkill /F /IM PokeDoro.exe /T || exit 0",
+    "rebuild": "rimraf dist && taskkill /F /IM PokeDoro.exe /T || true && electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^30.5.1",
+    "electron-builder": "^24.13.3",
+    "rimraf": "^6.1.3"
+  },
+  "build": {
+    "appId": "com.pokedoro.app",
+    "productName": "PokeDoro",
+    "files": [
+      "index.html",
+      "main.js",
+      "preload.js",
+      "sw.js",
+      "manifest.json",
+      "dittobg.png",
+      "icons/**"
+    ],
+    "extraResources": [
+      {
+        "from": "icons",
+        "to": "icons"
+      }
+    ],
+    "asar": true,
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "freethewalruses",
+        "repo": "PokeDoroDesktop"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "icons/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": false,
+      "createStartMenuShortcut": true,
+      "shortcutName": "PokeDoro"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "icons/icon.icns"
+    }
+  }
+}
