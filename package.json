@@ -16,6 +16,7 @@
     "kill": "taskkill /F /IM PokeDoro.exe /T || exit 0",
     "predist": "taskkill /F /IM PokeDoro.exe /T || exit 0",
     "prepack": "taskkill /F /IM PokeDoro.exe /T || exit 0",
+    "build": "electron-builder --win --mac",
     "rebuild": "rimraf dist && taskkill /F /IM PokeDoro.exe /T || true && electron-builder"
   },
   "devDependencies": {
@@ -47,7 +48,8 @@
       {
         "provider": "github",
         "owner": "freethewalruses",
-        "repo": "PokeDoroDesktop"
+        "repo": "PokeDoroDesktop",
+        "releaseType": "draft"
       }
     ],
     "win": {
