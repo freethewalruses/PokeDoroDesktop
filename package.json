@@ -1,6 +1,6 @@
 {
   "name": "pokedoro",
-  "version": "1.2.0",
+  "version": "1.2.6",
   "description": "Pokemon Pomodoro — Electron desktop widget",
   "main": "main.js",
   "author": "freethewalruses",
@@ -48,7 +48,8 @@
       {
         "provider": "github",
         "owner": "freethewalruses",
-        "repo": "PokeDoroDesktop"
+        "repo": "PokeDoroDesktop",
+        "releaseType": "release"
       }
     ],
     "win": {
